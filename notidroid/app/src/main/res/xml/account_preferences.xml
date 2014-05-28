@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Preference Screen displayed when the user click on your Account type
+    in the system preferences screen -->
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="Others" />
+    <PreferenceScreen
+        android:key="key1"
+        android:title="Licences"
+        android:summary="Licences">
+        <intent
+            android:action="key1.ACTION"
+            android:targetPackage="key1.package"
+            android:targetClass="key1.class" />
+    </PreferenceScreen>
+</PreferenceScreen>
