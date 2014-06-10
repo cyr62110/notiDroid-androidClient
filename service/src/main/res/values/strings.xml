@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">notidroid</string>
+
+    <string name="accountType">fr.cvlaminck.notidroid</string>
+    <string name="accountLabel">notidroid</string>
+
+
+</resources>

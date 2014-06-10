@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Colors used for texts -->
+    <color name="notidroid_primaryText">@android:color/black</color>
+    <color name="notidroid_primaryTextInverse">@android:color/white</color>
+    <color name="notidroid_secondaryText">@android:color/secondary_text_light</color>
+    <color name="notidroid_secondaryTextInverse">@android:color/secondary_text_dark</color>
+
+    <color name="notidroid_black">#000000</color>
+    <color name="notidroid_white">#FFFFFF</color>
+
+    <color name="notidroid_lighterGreen">#67FF4D</color>
+    <color name="notidroid_green">#55D43F</color>
+    <color name="notidroid_darkerGreen">#5BC236</color>
+
+    <color name="notidroid_lightestGrey">#EEEEEE</color>
+    <color name="notidroid_lighterGrey">#CCCCCC</color>
+    <color name="notidroid_grey">#999999</color>
+    <color name="notidroid_darkerGrey">#666666</color>
+</resources>

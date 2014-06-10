@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Padding often sets on the root layout -->
+    <dimen name="notidroid_rootLayoutPadding">5dp</dimen>
+
+    <dimen name="notidroid_textMicro">12sp</dimen>
+    <dimen name="notidroid_textSmall">14sp</dimen>
+    <dimen name="notidroid_textMedium">18sp</dimen>
+    <dimen name="notidroid_textLarge">22sp</dimen>
+</resources>

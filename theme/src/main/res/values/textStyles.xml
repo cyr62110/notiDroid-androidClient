@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    This file contains all standard text styles that are used across all notidroid android
+    applications.
+-->
+<resources>
+
+    <!-- Style of a title when inserted in the core of the page -->
+    <style name="Notidroid.Text.Title">
+        <item name="android:textSize">32sp</item>
+        <item name="android:textColor">@color/notidroid_primaryText</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+    </style>
+
+    <!-- Style of a text giving explanation on the page. It often comes right under
+        a title. -->
+    <style name="Notidroid.Text.SubTitle">
+        <item name="android:textSize">@dimen/notidroid_textMedium</item>
+        <item name="android:textColor">@color/notidroid_primaryText</item>
+    </style>
+
+    <!-- Style of a standard text in a page -->
+    <style name="Notidroid.Text">
+        <item name="android:textSize">@dimen/notidroid_textMedium</item>
+        <item name="android:textColor">@color/notidroid_primaryText</item>
+    </style>
+
+</resources>

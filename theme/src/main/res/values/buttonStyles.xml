@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    This file contains all standard text styles that are used across all notidroid android
+    applications.
+-->
+<resources>
+
+    <style name="Notidroid.Button" parent="android:Widget.Button">
+    </style>
+
+    <!-- Button exposed as the primary choice for the user -->
+    <style name="Notidroid.Button.Primary" parent="Notidroid.Button">
+        <item name="android:background">@drawable/buttonprimary_background</item>
+        <item name="android:textColor">@color/notidroid_primaryTextInverse</item>
+        <item name="android:textSize">@dimen/notidroid_textMedium</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_margin">3dp</item>
+    </style>
+
+    <!-- Button exposed as a secondary choice for the user -->
+    <style name="Notidroid.Button.Secondary" parent="Notidroid.Button">
+        <item name="android:background">@drawable/buttonsecondary_background</item>
+        <item name="android:textColor">@color/notidroid_secondaryText</item>
+        <item name="android:textSize">@dimen/notidroid_textMedium</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_margin">3dp</item>
+    </style>
+
+
+
+
+</resources>

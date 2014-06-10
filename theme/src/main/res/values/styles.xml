@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Notidroid"/>
+
+    <!-- ActionBar style -->
+    <style name="Notidroid.ActionBar" parent="@android:style/Widget.Holo.Light.ActionBar.Solid.Inverse">
+        <item name="android:background">@color/notidroid_green</item>
+    </style>
+
+</resources>
