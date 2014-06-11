@@ -2,6 +2,7 @@ package fr.cvlaminck.notidroid.android.base.activities.accounts;
 
 import android.app.Activity;
 
+import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EActivity;
 
 import fr.cvlaminck.notidroid.android.base.R;
@@ -14,6 +15,14 @@ import fr.cvlaminck.notidroid.android.base.R;
 public class CreateOrLoginActivity
     extends Activity {
 
+    @Click
+    protected void btnSignUpClicked() {
 
+    }
+
+    @Click
+    protected void btnLogInClicked() {
+        LoginActivity_.intent(this).start();
+    }
 
 }
