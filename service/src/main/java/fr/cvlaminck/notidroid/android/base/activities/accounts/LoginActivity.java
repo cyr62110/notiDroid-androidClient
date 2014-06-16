@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.support.v13.app.FragmentPagerAdapter;
+import android.support.v4.view.PagerTunnelStepsStrip;
 import android.support.v4.view.ViewPager;
 
 import org.androidannotations.annotations.AfterViews;
@@ -36,13 +37,18 @@ public class LoginActivity
         }
 
         @Override
+        public CharSequence getPageTitle(int position) {
+            return PagerTunnelStepsStrip.STEP_TITLE;
+        }
+
+        @Override
         public Fragment getItem(int position) {
             return new NumberFragment();
         }
 
         @Override
         public int getCount() {
-            return 10;
+            return 3;
         }
     }
 
