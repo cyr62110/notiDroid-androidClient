@@ -17,7 +17,7 @@ public class CreateOrLoginActivity
 
     @Click
     protected void btnSignUpClicked() {
-
+        SignInActivity_.intent(this).start();
     }
 
     @Click

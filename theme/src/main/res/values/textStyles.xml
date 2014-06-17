@@ -7,7 +7,8 @@
 
     <!-- Style of a title when inserted in the core of the page -->
     <style name="Notidroid.Text.Title">
-        <item name="android:textSize">32sp</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:textSize">@dimen/notidroid_textXLarge</item>
         <item name="android:textColor">@color/notidroid_primaryText</item>
         <item name="android:fontFamily">sans-serif-light</item>
     </style>
@@ -15,8 +16,10 @@
     <!-- Style of a text giving explanation on the page. It often comes right under
         a title. -->
     <style name="Notidroid.Text.SubTitle">
+        <item name="android:gravity">center_horizontal</item>
         <item name="android:textSize">@dimen/notidroid_textMedium</item>
         <item name="android:textColor">@color/notidroid_primaryText</item>
+        <item name="android:layout_margin">@dimen/notidroid_subTitleMargin</item>
     </style>
 
     <!-- Style of a standard text in a page -->

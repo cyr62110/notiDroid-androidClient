@@ -17,6 +17,8 @@
 
         <activity android:name=".activities.accounts.LoginActivity_" />
 
+        <activity android:name=".activities.accounts.SignInActivity_" />
+
     </application>
 
 </manifest>

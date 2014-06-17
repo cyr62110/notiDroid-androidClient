@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="@dimen/notidroid_rootLayoutPadding">
+
+    <TextView
+        android:id="@+id/lblTitle"
+        style="@style/Notidroid.Text.Title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Server selection" />
+
+    <TextView
+        android:id="@+id/lblSubTitle"
+        style="@style/Notidroid.Text.SubTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Notidroid is a community project. So hosting of online account is also done by the community. You will need to select on which server your account and your data will be stored. Please select one in the list or add your own by selecting the 'Custom' entry." />
+
+    <Spinner
+        android:id="@+id/spServer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/txtServerUrl"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="http://younotidroidserver.com"
+            android:singleLine="true"
+            />
+
+        <ProgressBar
+            android:id="@+id/pbCheckServerUrl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/notidroid_smallSpacing"
+            android:indeterminate="true"
+            />
+
+    </LinearLayout>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <!-- TODO : Stylify this button -->
+    <Button
+        android:id="@+id/btnNext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:text="Next"
+        />
+
+</LinearLayout>
