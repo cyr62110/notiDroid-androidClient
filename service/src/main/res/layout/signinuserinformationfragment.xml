@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="@dimen/notidroid_rootLayoutPadding">
+
+    <TextView
+        android:id="@+id/lblTitle"
+        style="@style/Notidroid.Text.Title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/signinuserinformationfragment_lblTitle" />
+
+    <TextView
+        android:id="@+id/lblSubTitle"
+        style="@style/Notidroid.Text.SubTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/signinuserinformationfragment_lblSubTitle" />
+
+    <EditText
+        android:id="@+id/txtFirstName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/notidroid_smallSpacing"
+        android:hint="@string/signinuserinformationfragment_txtFirstName_hint"
+        android:imeOptions="actionNext"
+        android:inputType="textCapWords" />
+
+    <EditText
+        android:id="@+id/txtLastName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/signinuserinformationfragment_txtLastName_hint"
+        android:imeOptions="actionDone"
+        android:inputType="textCapWords" />
+
+    <include
+        layout="@layout/accountfragments_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>
