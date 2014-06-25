@@ -131,7 +131,7 @@ public class PagerTunnelStepsStrip
         setStepColor(attributes.getColor(R.styleable.PagerTunnelStepsStrip_stepColor, Color.GREEN));
         stepDiameter = attributes.getDimensionPixelSize(R.styleable.PagerTunnelStepsStrip_stepDiameter, 50); //TODO ; put the default value in dp
         subStepDiameter = attributes.getDimensionPixelSize(R.styleable.PagerTunnelStepsStrip_subStepDiameter, stepDiameter / 2);
-        textSize = attributes.getDimensionPixelSize(R.styleable.PagerTunnelStepsStrip_android_textSize, 16); //TODO : put the default value in sp
+        setTextSize(attributes.getDimensionPixelSize(R.styleable.PagerTunnelStepsStrip_android_textSize, (int) (0.8 * stepDiameter)));
         setTextColor(attributes.getColor(R.styleable.PagerTunnelStepsStrip_android_textColor, Color.WHITE));
         attributes.recycle();
     }
@@ -222,7 +222,7 @@ public class PagerTunnelStepsStrip
                 //We draw the shape for this step
                 drawStepShapeOnCanvas(canvas, shapeCenterX, shapeCenterY, circleRadius);
                 //And we draw the step number over
-                //TODO
+                drawStepNumberOnCanvas(canvas, shapeCenterX, shapeCenterY, nextDrawnStepNumber);
                 nextDrawnStepNumber++;
             } else if (SUBSTEP_TITLE.equals(pagerAdapter.getPageTitle(pagePosition))) {
                 circleRadius = subStepDiameter / 2.0f;
@@ -249,8 +249,20 @@ public class PagerTunnelStepsStrip
         //We draw the background dot only if its alpha is greater than 0
         if (stepBackgroundPaint.getAlpha() > 0)
             canvas.drawOval(stepShapeRect, stepBackgroundPaint);
-        if(stepPaint.getAlpha() > 0)
+        if (stepPaint.getAlpha() > 0)
             canvas.drawOval(stepShapeRect, stepPaint);
+    }
+
+    private void drawStepNumberOnCanvas(Canvas canvas, float shapeCenterX, float shapeCenterY, int stepNumber) {
+        final String text = Integer.toString(stepNumber);
+        //First we need to measure the width of our text
+        final float textWidth = textPaint.measureText(text.toCharArray(), 0, text.length());
+
+        //Then we draw the number
+        //When working with font, you must use the descent() and ascent() functions to make precise measurement
+        canvas.drawText(text, shapeCenterX - (textWidth / 2),
+                shapeCenterY - ((textPaint.descent() + textPaint.ascent()) / 2),
+                textPaint);
     }
 
     public int getStepColor() {
@@ -278,6 +290,15 @@ public class PagerTunnelStepsStrip
     public void setTextColor(int textColor) {
         this.textColor = textColor;
         this.textPaint.setColor(textColor);
+    }
+
+    public int getTextSize() {
+        return textSize;
+    }
+
+    public void setTextSize(int textSize) {
+        this.textSize = textSize;
+        this.textPaint.setTextSize(textSize);
     }
 
     /**
