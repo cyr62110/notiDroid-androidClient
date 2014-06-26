@@ -5,6 +5,8 @@
     <color name="notidroid_primaryTextInverse">@android:color/white</color>
     <color name="notidroid_secondaryText">@android:color/secondary_text_light</color>
     <color name="notidroid_secondaryTextInverse">@android:color/secondary_text_dark</color>
+    <color name="notidroid_tertiaryText">@android:color/tertiary_text_light</color>
+    <color name="notidroid_tertiaryTextInverse">@android:color/tertiary_text_dark</color>
 
     <color name="notidroid_black">#000000</color>
     <color name="notidroid_white">#FFFFFF</color>

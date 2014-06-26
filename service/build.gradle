@@ -21,6 +21,7 @@ dependencies {
     compile 'com.android.support:support-v4:+'
     compile 'com.android.support:support-v13:+'
 
+    compile group: 'fr.cvlaminck.notidroid', name: 'cloud-client-java-api', version: '+', changing: true
 
     //IDEA annotations used to run static code analyses
     compile 'com.intellij:annotations:12.0'

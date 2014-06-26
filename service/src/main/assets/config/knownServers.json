@@ -1,6 +1,11 @@
 [
     {
         "serverName" : "Local",
-        "serverUrl" : "http://192.168.1.183:8080/api",
+        "serverUrl" : "http://192.168.1.183:8080",
+        "apiUrl" : "http://192.168.1.183:8080/api",
+    },
+    {
+        "serverName" : "VPS",
+        "serverUrl" : "http://192.168.1.183:8080"
     }
 ]

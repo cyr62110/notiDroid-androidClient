@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="@dimen/notidroid_rootLayoutPadding">
+
+    <TextView
+        android:id="@+id/txtServerName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:text="@string/knownserverview_txtServerName"
+        android:textColor="@color/notidroid_primaryText"
+        android:textSize="@dimen/notidroid_textLarge" />
+
+    <TextView
+        android:id="@+id/txtServerUrl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/notidroid_mediumSpacing"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:text="@string/knownserverview_txtServerUrl"
+        android:textColor="@color/notidroid_secondaryText"
+        android:textSize="@dimen/notidroid_textMedium"
+        android:textStyle="italic" />
+
+</LinearLayout>

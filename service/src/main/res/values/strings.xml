@@ -4,5 +4,7 @@
     <string name="accountType">fr.cvlaminck.notidroid</string>
     <string name="accountLabel">notidroid</string>
 
+    <string name="knownserverview_txtServerName">Custom</string>
+    <string name="knownserverview_txtServerUrl">Type the url of your own server.</string>
 
 </resources>

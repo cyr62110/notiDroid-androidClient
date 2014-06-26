@@ -12,6 +12,12 @@ buildscript {
 
 allprojects {
     repositories {
+        mavenLocal()
         mavenCentral()
     }
+}
+
+configurations.all {
+    // check for updates every build
+    resolutionStrategy.cacheChangingModulesFor 0, 'seconds'
 }

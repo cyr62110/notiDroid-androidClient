@@ -17,13 +17,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 import fr.cvlaminck.notidroid.android.base.data.assets.config.KnownServer;
+import fr.cvlaminck.notidroid.android.base.views.accounts.KnownServerView;
+import fr.cvlaminck.notidroid.android.base.views.accounts.KnownServerView_;
 
 /**
  * Adapter containing all known Notidroid cloud backends. It also add a Custom entry if the user wants
  * to provide its own server instead of picking one in the list.
  */
 public class KnownServerAdapter
-    extends BaseAdapter {
+        extends BaseAdapter {
     private static final String TAG = KnownServerAdapter.class.getSimpleName();
 
     private Context context = null;
@@ -55,7 +57,7 @@ public class KnownServerAdapter
 
     @Override
     public Object getItem(int position) {
-        if(position < knownServers.size())
+        if (position < knownServers.size())
             return knownServers.get(position);
         else
             return null; //In the case of the Custom entry, we return null
@@ -69,7 +71,10 @@ public class KnownServerAdapter
     @Nullable
     @Override
     public View getView(int position, View convertView, ViewGroup viewGroup) {
-        //TODO
-        return null;
+        if (convertView == null)
+            convertView = KnownServerView_.build(context, null);
+        final KnownServerView knownServerView = (KnownServerView) convertView;
+        knownServerView.setKnownServer((KnownServer) getItem(position));
+        return knownServerView;
     }
 }
