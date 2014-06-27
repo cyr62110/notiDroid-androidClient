@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 
+import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import org.jetbrains.annotations.NotNull;
@@ -14,6 +15,7 @@ import org.jetbrains.annotations.Nullable;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import fr.cvlaminck.notidroid.android.base.data.assets.config.KnownServer;
@@ -33,7 +35,8 @@ public class KnownServerAdapter
     private List<KnownServer> knownServers = null;
 
     public KnownServerAdapter(@NotNull Context context) {
-        knownServers = new ArrayList<>();
+        this.context = context;
+        this.knownServers = new ArrayList<>();
         readKnowServersFromAsset();
     }
 
@@ -44,7 +47,7 @@ public class KnownServerAdapter
         try {
             final InputStream inputStream = context.getAssets().open("config/knownServers.json");
             final ObjectMapper objectMapper = new ObjectMapper();
-            knownServers.addAll(objectMapper.readValue(inputStream, knownServers.getClass()));
+            this.knownServers = objectMapper.readValue(inputStream, KnowServerList.class);
         } catch (IOException e) {
             Log.e(TAG, "Cannot read the list of know servers from assets due to : " + e.getMessage());
         }
@@ -76,5 +79,15 @@ public class KnownServerAdapter
         final KnownServerView knownServerView = (KnownServerView) convertView;
         knownServerView.setKnownServer((KnownServer) getItem(position));
         return knownServerView;
+    }
+
+    /**
+     * ArrayList implementation that should be passed to Jackson so it can deserialize the knownServers file
+     * properly.
+     */
+    public static class KnowServerList extends ArrayList<KnownServer> {
+        public KnowServerList() {
+            super();
+        }
     }
 }

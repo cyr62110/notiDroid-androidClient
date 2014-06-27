@@ -18,8 +18,8 @@ dependencies {
 
     compile 'com.fasterxml.jackson.core:jackson-databind:2.4.0'
 
-    compile 'com.android.support:support-v4:+'
-    compile 'com.android.support:support-v13:+'
+    compile 'com.android.support:support-v4:20.+'
+    compile 'com.android.support:support-v13:20.+'
 
     compile group: 'fr.cvlaminck.notidroid', name: 'cloud-client-java-api', version: '+', changing: true
 
@@ -53,6 +53,16 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_7
         targetCompatibility JavaVersion.VERSION_1_7
     }
+
+    packagingOptions {
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/NOTICE'
+    }
+}
+
+configurations.all {
+    // check for updates every build
+    resolutionStrategy.cacheChangingModulesFor 0, 'seconds'
 }
 
 

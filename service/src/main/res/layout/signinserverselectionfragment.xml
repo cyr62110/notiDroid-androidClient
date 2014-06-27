@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="Server selection" />
+        android:text="@string/signinserverselectionfragment_txtTitle" />
 
     <TextView
         android:id="@+id/lblSubTitle"
@@ -20,7 +20,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="Notidroid is a community project. So hosting of online account is also done by the community. You will need to select on which server your account and your data will be stored. Please select one in the list or add your own by selecting the 'Custom' entry." />
+        android:text="@string/signinserverselectionfragment_lblSubTitle" />
 
     <Spinner
         android:id="@+id/spServer"
@@ -36,32 +36,20 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:hint="http://younotidroidserver.com"
-            android:singleLine="true"
-            />
+            android:hint="@string/signinserverselectionfragment_txtServerUrl_hint"
+            android:singleLine="true" />
 
         <ProgressBar
             android:id="@+id/pbCheckServerUrl"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/notidroid_smallSpacing"
-            android:indeterminate="true"
-            />
+            android:indeterminate="true" />
 
     </LinearLayout>
 
-    <Space
+    <include layout="@layout/accountfragments_bottom"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1" />
-
-    <!-- TODO : Stylify this button -->
-    <Button
-        android:id="@+id/btnNext"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="right"
-        android:text="Next"
-        />
+        android:layout_height="wrap_content" />
 
 </LinearLayout>

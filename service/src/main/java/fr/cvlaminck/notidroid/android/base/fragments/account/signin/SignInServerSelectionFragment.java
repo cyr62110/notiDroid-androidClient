@@ -50,7 +50,7 @@ public class SignInServerSelectionFragment
     }
 
     @ItemSelect
-    protected void spServerSelected(boolean selected, int position) {
+    protected void spServer(boolean selected, int position) {
         if(selected) {
             //If the user has selected the custom entry, we display the custom layout
 

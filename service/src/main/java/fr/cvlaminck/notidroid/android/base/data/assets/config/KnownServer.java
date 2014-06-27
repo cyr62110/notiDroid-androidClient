@@ -31,6 +31,9 @@ public class KnownServer
      */
     private String apiUrl;
 
+    public KnownServer() {
+    }
+
     public String getServerName() {
         return serverName;
     }

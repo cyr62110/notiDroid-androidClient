@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Attributes for the PagerTunnelStepsStrip view -->
+    <declare-styleable name="PagerTunnelStepsStrip">
+        <attr name="backgroundStepColor" format="color" />
+        <attr name="stepColor" format="color" />
+        <attr name="stepDiameter" format="dimension" />
+        <attr name="subStepDiameter" format="dimension" />
+        <attr name="android:textSize" />
+        <attr name="android:textColor" />
+    </declare-styleable>
+
+</resources>

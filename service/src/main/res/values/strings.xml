@@ -7,4 +7,14 @@
     <string name="knownserverview_txtServerName">Custom</string>
     <string name="knownserverview_txtServerUrl">Type the url of your own server.</string>
 
+    <string name="signinserverselectionfragment_lblSubTitle">Notidroid is a community project. So hosting of online account is also done by the community. Select the server that will host your account and your data. Or choose \'Custom\' to enter the url of your own server.</string>
+    <string name="signinserverselectionfragment_txtTitle">Server selection</string>
+    <string name="signinserverselectionfragment_txtServerUrl_hint">http://yournotidroidserver.com</string>
+
+    <string name="signinuserinformationfragment_lblTitle">Information about you</string>
+    <string name="signinuserinformationfragment_lblSubTitle">We need some information about you to improve your user experience.</string>
+    <string name="signinuserinformationfragment_txtFirstName_hint">First name</string>
+    <string name="signinuserinformationfragment_txtLastName_hint">Last name</string>
+
+
 </resources>
