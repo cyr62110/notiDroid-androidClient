@@ -7,7 +7,7 @@ import java.io.Serializable;
 /**
  * JSON representation of an online server hosting Notidroid cloud backend.
  * All known servers are written in the knownServers.json file and will be
- * displayed when an user creates its account so he can register on one of them.
+ * displayed when an user creates its cloudAccount so he can register on one of them.
  */
 public class KnownServer
     implements Serializable {

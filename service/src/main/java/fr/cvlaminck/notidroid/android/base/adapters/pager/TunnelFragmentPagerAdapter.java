@@ -4,13 +4,16 @@ import android.app.Fragment;
 import android.app.FragmentManager;
 import android.support.v13.app.FragmentStatePagerAdapter;
 import android.support.v4.view.PagerTunnelStepsStrip;
+import android.view.ViewGroup;
 
 import org.jetbrains.annotations.NotNull;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * FragmentAdapter that should be used for ViewPager with PagerTunnelStepsStrip to
@@ -27,9 +30,16 @@ public class TunnelFragmentPagerAdapter
      */
     private List<InternalTunnelStep> internalTunnelSteps = null;
 
+    /**
+     * Fragments that have been instantiated by the ViewPager.
+     * We keep them in the map so we can retrieve them and manipulate them.
+     */
+    private Map<Integer, Fragment> instantiatedFragments = null;
+
     public TunnelFragmentPagerAdapter(FragmentManager fm) {
         super(fm);
         internalTunnelSteps = new ArrayList<>();
+        instantiatedFragments = new HashMap<>();
     }
 
     /**
@@ -78,6 +88,30 @@ public class TunnelFragmentPagerAdapter
         return internalTunnelSteps.get(position).getTitle();
     }
 
+    @Override
+    public Object instantiateItem(ViewGroup container, int position) {
+        final Fragment fragment = (Fragment) super.instantiateItem(container, position);
+        instantiatedFragments.put(position, fragment);
+        return fragment;
+    }
+
+    @Override
+    public void destroyItem(ViewGroup container, int position, Object object) {
+        super.destroyItem(container, position, object);
+        instantiatedFragments.put(position, null);
+    }
+
+    /**
+     * Return the Fragment instance at position in the ViewPager.
+     * May return null if the fragment has not been instantiated or has been destroyed.
+     *
+     * @param position Position in the ViewPager
+     * @return a fragment instance
+     */
+    public Fragment getFragmentAt(int position) {
+        return instantiatedFragments.get(position);
+    }
+
     /**
      * Representation of a step/substep in the tunnel.
      */
@@ -123,12 +157,12 @@ public class TunnelFragmentPagerAdapter
                 final Object builderInstance = builderMethod.invoke(stepClass);
                 //Then we can build our fragment
                 final Method buildMethod = builderClass.getMethod("build", new Class<?>[]{});
-                return (Fragment) buildMethod.invoke(builderInstance);
+                final Fragment fragment = (Fragment) buildMethod.invoke(builderInstance);
+                return fragment;
             } catch (NoSuchMethodException | InvocationTargetException | IllegalAccessException e) {
                 throw new IllegalStateException("Cannot instantiate fragment '" + stepClass.getSimpleName() + "'", e);
             }
         }
-
     }
 
 }

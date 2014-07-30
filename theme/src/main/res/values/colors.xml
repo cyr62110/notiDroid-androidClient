@@ -7,6 +7,8 @@
     <color name="notidroid_secondaryTextInverse">@android:color/secondary_text_dark</color>
     <color name="notidroid_tertiaryText">@android:color/tertiary_text_light</color>
     <color name="notidroid_tertiaryTextInverse">@android:color/tertiary_text_dark</color>
+    <color name="notidroid_warningText">@android:color/holo_orange_light</color>
+    <color name="notidroid_errorText">@android:color/holo_red_light</color>
 
     <color name="notidroid_black">#000000</color>
     <color name="notidroid_white">#FFFFFF</color>

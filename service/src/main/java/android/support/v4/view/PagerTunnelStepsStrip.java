@@ -316,7 +316,6 @@ public class PagerTunnelStepsStrip
 
         @Override
         public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-            Log.d(TAG, "positon : " + position + "; positionOffset : " + positionOffset);
             lastPosition = position;
             lastPositionOffset = positionOffset;
             invalidate();

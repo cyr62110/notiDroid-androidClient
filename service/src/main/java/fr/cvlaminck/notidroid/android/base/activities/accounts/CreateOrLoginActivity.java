@@ -8,7 +8,7 @@ import org.androidannotations.annotations.EActivity;
 import fr.cvlaminck.notidroid.android.base.R;
 
 /**
- * Activity that ask if the user wants to create a new online account
+ * Activity that ask if the user wants to create a new online cloudAccount
  * or log-in with an existing one.
  */
 @EActivity(R.layout.createorloginactivity)

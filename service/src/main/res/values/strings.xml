@@ -10,11 +10,33 @@
     <string name="signinserverselectionfragment_lblSubTitle">Notidroid is a community project. So hosting of online account is also done by the community. Select the server that will host your account and your data. Or choose \'Custom\' to enter the url of your own server.</string>
     <string name="signinserverselectionfragment_txtTitle">Server selection</string>
     <string name="signinserverselectionfragment_txtServerUrl_hint">http://yournotidroidserver.com</string>
+    <string name="signinserverselectionfragment_txtErrorMessage_UnsupportedAPIVersion">Your app is not compatible with this server. Update or choose another one.</string>
+    <string name="signinserverselectionfragment_txtErrorMessage_httpError">This server is not available. Retry later or choose another one.</string>
 
     <string name="signinuserinformationfragment_lblTitle">Information about you</string>
     <string name="signinuserinformationfragment_lblSubTitle">We need some information about you to improve your user experience.</string>
     <string name="signinuserinformationfragment_txtFirstName_hint">First name</string>
     <string name="signinuserinformationfragment_txtLastName_hint">Last name</string>
+
+    <string name="signincredentialsfragment_lblTitle">Your credentials</string>
+    <string name="signincredentialsfragment_lblSubTitle">Your email address will be use as your login. With this, you will be able to connect more device to your account and access your online portal at %s</string>
+    <string name="signincredentialsfragment_txtEmail_hint">Email address</string>
+    <string name="signincredentialsfragment_txtPassword_hint">Password</string>
+    <string name="signincredentialsfragment_txtRetypePassword_hint">Retype your password</string>
+    <string name="signincredentialsfragment_txtRetypePassword_error">Passwords do not match</string>
+    <string name="signincredentialsfragment_txtEmail_error">This does not looks like an email</string>
+
+    <string name="signinaccountcreationfragment_lblTitle_registrationFailed">Registration failed</string>
+    <string name="signinaccountcreationfragment_lblTitle_inProgress">Registration in progress...</string>
+    <string name="signinaccountcreationfragment_lblTitle_registrationFinished">Registration finished</string>
+    <string name="signinaccountcreationfragment_lblSubTitle_emailAlreadyInUse">An email address can only be linked to ONE online account. Try to login, you must have already created your account on this server.</string>
+    <string name="signinaccountcreationfragment_lblSubTitle_registrationNotAllowed">Select another server. Registration of new account on the selected server is not allowed. Registration may be closed or whitelisted.</string>
+    <string name="signinaccountcreationfragment_lblSubTitle_internalError">Retry. The server has encountered an error during the procedure.</string>
+    <string name="signinaccountcreationfragment_btnPrimary_login">Login</string>
+    <string name="signinaccountcreationfragment_btnPrimary_chooseAnotherServer">Choose another server</string>
+    <string name="signinaccountcreationfragment_btnPrimary_retry">Retry</string>
+    <string name="signinaccountcreationfragment_btnPrimary_startUsing">Start using Notidroid</string>
+    <string name="signinaccountcreationfragment_btnSecondary_changeMyEmail">Change my email</string>
 
 
 </resources>
