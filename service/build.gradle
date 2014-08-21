@@ -16,7 +16,8 @@ dependencies {
     apt 'org.androidannotations:androidannotations:3.0.1'
     compile 'org.androidannotations:androidannotations-api:3.0.1'
 
-    compile 'com.fasterxml.jackson.core:jackson-databind:2.4.0'
+    compile 'com.fasterxml.jackson.core:jackson-databind:2.4.1'
+    compile 'de.undercouch:bson4jackson:2.4.0'
 
     compile 'org.springframework.android:spring-android-rest-template:1.0.1.RELEASE'
     compile 'org.springframework.android:spring-android-core:1.0.1.RELEASE'
@@ -25,6 +26,8 @@ dependencies {
     compile 'com.android.support:support-v13:20.+'
 
     compile 'org.apache.commons:commons-lang3:3.3.2'
+
+    compile 'org.eclipse.paho:mqtt-client:0.4.0'
 
     compile group: 'fr.cvlaminck.notidroid', name: 'cloud-client-java-api', version: '+', changing: true
 
@@ -43,7 +46,7 @@ android {
     enforceUniquePackageName = false
 
     defaultConfig {
-        minSdkVersion 16
+        minSdkVersion 18
         targetSdkVersion 19
         versionCode 1
         versionName "1.0"

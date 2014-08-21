@@ -17,6 +17,25 @@
                 android:resource="@xml/authenticator" />
         </service>
 
+        <service android:name=".services.NotidroidNotificationListenerService_"
+            android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE">
+            <intent-filter>
+                <action android:name="android.service.notification.NotificationListenerService" />
+            </intent-filter>
+        </service>
+
+        <service android:name=".services.cloud.NotidroidCloudService_">
+            <intent-filter>
+                <action android:name="fr.cvlaminck.notidroid.cloud.api" />
+            </intent-filter>
+        </service>
+
+        <service android:name=".services.push.NotidroidPushNotificationService_">
+            <intent-filter>
+                <action android:name="fr.cvlaminck.notidroid.push" />
+            </intent-filter>
+        </service>
+
         <activity android:name=".activities.accounts.CreateOrLoginActivity_">
             <intent-filter>
                 <!-- TODO : remove this part, we do not want this activity to be registered on the launcher -->

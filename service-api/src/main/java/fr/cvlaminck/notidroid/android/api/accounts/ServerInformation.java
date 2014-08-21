@@ -46,9 +46,22 @@ public class ServerInformation
      * Oauth2 endpoints are not under the API root url.
      */
     public String getOAuth2AuthorizationServerUrl() {
+        //TODO replace with information coming from the server
         if(apiUrl == null || apiUrl.length() == 0)
             return null;
         return apiUrl.substring(0, apiUrl.length() - (apiUrl.endsWith("/")?4:3)) + "oauth";
+    }
+
+    /**
+     * Return the location of the message broker used by the backend to push
+     * notification to user devices.
+     */
+    public String getMessageBrokerUrl() {
+        //TODO replace with information coming from the server
+        if(apiUrl == null || apiUrl.length() == 0)
+            return null;
+        Uri uri = Uri.parse(apiUrl);
+        return "tcp://" + uri.getAuthority() + ":8989";
     }
 
     public void setApiUrl(String apiUrl) {

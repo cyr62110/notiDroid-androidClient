@@ -5,7 +5,7 @@ android {
     buildToolsVersion "19.1.0"
 
     defaultConfig {
-        applicationId "fr.cvlaminck.notidroid.android"
+        applicationId "fr.cvlaminck.notidroid.android.theme"
         minSdkVersion 16
         targetSdkVersion 19
         versionCode 1

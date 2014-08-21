@@ -6,6 +6,7 @@ import android.accounts.AuthenticatorException;
 import android.accounts.OperationCanceledException;
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 
 import org.jetbrains.annotations.NotNull;
 import org.springframework.http.HttpAuthentication;
@@ -23,8 +24,13 @@ import fr.cvlaminck.notidroid.android.base.oauth2.OAuth2HttpAuthentication;
  * like the url of the server where the user has registered its online
  * cloudAccount, the first name and the last name of the user, etc...
  * This class will help you to manipulate those data.
+ * <p/>
+ * There is only one account per user or per device (if the multi-user is not enable) since
+ * it does not make sens for an user to sync its notification with multiple accounts.
  */
 public class NotidroidAccount {
+    private final static boolean DEBUG = true;
+    private final static String TAG = NotidroidAccount.class.getSimpleName();
 
     /**
      * Type of the auth token used by notidroid
@@ -41,6 +47,11 @@ public class NotidroidAccount {
      * authorization server.
      */
     private final static String KEY_OAUTH2_URL = "oauth2";
+
+    /**
+     * Url of the message broker
+     */
+    private final static String KEY_MQ_URL = "mq";
 
     /**
      * Id of the cloud cloudAccount related to this local cloudAccount.
@@ -62,11 +73,14 @@ public class NotidroidAccount {
      */
     private final static String KEY_DEVICE_ID = "did";
 
+    private Context context = null;
+
     private AccountManager accountManager = null;
 
     private Account account = null;
 
     NotidroidAccount(@NotNull Context context, @NotNull Account account) {
+        this.context = context;
         this.account = account;
         this.accountManager = (AccountManager) context.getSystemService(Context.ACCOUNT_SERVICE);
     }
@@ -94,17 +108,20 @@ public class NotidroidAccount {
      * @param password  Password that we will use to authenticate our user on the cloud backend.
      * @param apiUrl    Url of the server where the user has registered its cloudAccount, must point to the root of the REST api.
      * @param oauth2Url Url of the Oauth2 authorization server that will be used to authenticates our user.
+     * @param mqUrl     Url of the message broker
      * @param onlineId  Id of the online cloudAccount.
      * @return a wrapped cloudAccount with helper methods
      */
     public static NotidroidAccount create(@NotNull Context context, @NotNull String email, String password,
-                                          @NotNull String apiUrl, @NotNull String oauth2Url, long onlineId) {
+                                          @NotNull String apiUrl, @NotNull String oauth2Url, @NotNull String mqUrl,
+                                          long onlineId) {
         final String notidroidAccountType = context.getString(R.string.accountType);
         final AccountManager accountManager = (AccountManager) context.getSystemService(Context.ACCOUNT_SERVICE);
 
         final Bundle userData = new Bundle();
         userData.putString(KEY_API_URL, apiUrl);
         userData.putString(KEY_OAUTH2_URL, oauth2Url);
+        userData.putString(KEY_MQ_URL, mqUrl);
         userData.putLong(KEY_ONLINE_ID, onlineId);
 
         final Account account = new Account(email, notidroidAccountType);
@@ -135,6 +152,22 @@ public class NotidroidAccount {
         }
 
         return (account != null) ? NotidroidAccount.wrap(context, account) : null;
+    }
+
+    /**
+     * Find the account associated to the current android user.
+     *
+     * @param context an android context
+     * @return a wrapped account with helper methods
+     */
+    public static NotidroidAccount findOne(@NotNull Context context) {
+        final String notidroidAccountType = context.getString(R.string.accountType);
+        final AccountManager accountManager = (AccountManager) context.getSystemService(Context.ACCOUNT_SERVICE);
+
+        Account account = null;
+        final Account[] accounts = accountManager.getAccountsByType(notidroidAccountType);
+
+        return (accounts.length > 0) ? NotidroidAccount.wrap(context, accounts[0]) : null;
     }
 
     /**
@@ -185,6 +218,10 @@ public class NotidroidAccount {
         return accountManager.getUserData(account, KEY_OAUTH2_URL);
     }
 
+    public String getMessageBrokerUrl() {
+        return accountManager.getUserData(account, KEY_MQ_URL);
+    }
+
     public Long getOnlineId() {
         Long id = null;
         final String sOnlineId = accountManager.getUserData(account, KEY_ONLINE_ID);
@@ -193,11 +230,27 @@ public class NotidroidAccount {
         return id;
     }
 
+    public String blockingGetAuthToken() throws AuthenticatorException, OperationCanceledException, IOException {
+        final String authToken = accountManager.blockingGetAuthToken(account, AUTH_TOKEN_TYPE, true);
+        if(DEBUG)
+            Log.d(TAG, "Retrieved auth token '" + authToken + "'");
+        return authToken;
+    }
+
+    public void invalidateAuthToken(String authToken) {
+        if(authToken == null)
+            return;
+        if(DEBUG)
+            Log.d(TAG, "Invalidating token '" + authToken + "'");
+        final String notidroidAccountType = context.getString(R.string.accountType);
+        accountManager.invalidateAuthToken(notidroidAccountType, authToken);
+    }
+
     /**
      * Return an HttpAuthentication that can be used to access the part of the online
      * that requires an authentication.
      *
-     * @return an HttpAuthentication with
+     * @return an HttpAuthentication ready for the Oauth2 authentication.
      */
     public HttpAuthentication blockingGetHttpAuthentication() throws AuthenticatorException, OperationCanceledException, IOException {
         final String accessToken = accountManager.blockingGetAuthToken(account, AUTH_TOKEN_TYPE, true);

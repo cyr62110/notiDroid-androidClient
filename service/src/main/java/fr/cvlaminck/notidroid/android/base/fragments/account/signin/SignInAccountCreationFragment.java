@@ -398,7 +398,7 @@ public class SignInAccountCreationFragment
             //Then we create the local android cloudAccount
             final NotidroidAccount localAccount = NotidroidAccount.create(getActivity(), cloudAccount.getEmail(), password,
                     cloudAccount.getServer().getApiUrl(), cloudAccount.getServer().getOAuth2AuthorizationServerUrl(),
-                    onlineAccount.getId());
+                    cloudAccount.getServer().getMessageBrokerUrl(), onlineAccount.getId());
             localAccount.setFirstName(cloudAccount.getFirstName());
             localAccount.setLastName(cloudAccount.getLastName());
             //We have finished this step, so we can update our status
